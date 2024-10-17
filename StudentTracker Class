@@ -1,0 +1,31 @@
+class StudentTracker:
+    def __init__(self):
+        self.students = []
+
+    def add_student(self, student):
+        for s in self.students:
+            if s.roll_number == student.roll_number:
+                print("Student with this roll number already exists.")
+                return
+        self.students.append(student)
+
+    def add_grades(self, roll_number, subject, grade):
+        for student in self.students:
+            if student.roll_number == roll_number:
+                student.add_grade(subject, grade)
+                return
+        print("Student not found.")
+
+    def view_student_details(self, roll_number):
+        for student in self.students:
+            if student.roll_number == roll_number:
+                student.display_info()
+                return
+        print("Student not found.")
+
+    def calculate_average(self, roll_number):
+        for student in self.students:
+            if student.roll_number == roll_number:
+                return student.calculate_average()
+        print("Student not found.")
+        return None
